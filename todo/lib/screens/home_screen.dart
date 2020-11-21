@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/components/usable_widgets.dart';
 import 'package:todo/components/constants.dart';
+import 'package:todo/screens/add_task_screen.dart';
 
 class TodoHome extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -42,11 +43,7 @@ class TodoHome extends StatelessWidget {
                 ),
                 Text(
                   '12 Tasks',
-                  style: TextStyle(
-                      color: kWhiteColor,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 2.5),
+                  style: kTextSub,
                 )
               ],
             ),
@@ -65,7 +62,12 @@ class TodoHome extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kMainColor,
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => AddTask(),
+          );
+        },
         child: Icon(Icons.add),
       ),
     );
